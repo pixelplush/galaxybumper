@@ -27,6 +27,24 @@
 </head>
 <body>
 	<div id="unicorn-display"></div>
+	<script>
+	ComfyTwitch.Check()
+    .then( async result => {
+        if( result ) {
+            try {
+                // console.log( ComfyTwitch );
+                console.log( "Logged in with Twitch!" );
+                // Invoke login with PlayFab code and pass the token
+                loginWithPlayFab( ComfyTwitch.Token );
+				window.loginGame( ComfyTwitch.User );
+            }
+            catch( error ) {
+                // Auth Failed
+                console.log( "Auth Validate Failed: " + error );
+            }
+        }
+    });
+	</script>
 	<script src="galaxybumper.min.js"></script>
 </body>
 </html>
